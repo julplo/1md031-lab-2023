@@ -1,0 +1,78 @@
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+.tjock {
+    font-weight: bold;
+}
+
+#stort {
+    text-transform: uppercase;
+}
+
+#minheader {
+    position: relative;
+}
+
+#minheader .header-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: darkblue;
+    margin-top: -1;
+    font-size: 1.3em;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 800px) {
+    h1 {
+        font-size: 6vw;
+    }
+}
+
+#himmel {
+    opacity: 0.7;
+    width: 100%;
+    height: auto;
+}
+
+#väljaburgare {
+    background-color: black;
+    color: white;
+    padding: 0.2em 0.7em;
+    border-radius: 25px;
+    border: dashed white;
+}
+
+#contact {
+    padding: 0.2em 0.7em;
+    margin-top: 0.5em; 
+    border-radius: 25px;
+    border: dashed black;
+}
+
+button:hover {
+    background-color: darkblue;
+}
+
+.custom-button {
+    cursor: pointer;
+    margin: 0.7em;
+    margin-top: 2em;
+    background-color: lightblue;
+}
+
+.wrapper {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 300px 300px 300px;
+    text-align: center;
+}
+
+.box {
+    padding: 15px;
+    margin: 10px;
+}
+

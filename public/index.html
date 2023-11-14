@@ -1,125 +1,17 @@
-<html lang="en">
-<head>
-        <title>Burgers</title>
-        <meta charset="utf-8"/>
-        <link rel="stylesheet" type="text/css" href="styles.css">
-         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
-</head>
-
-<body>
-    <header id="minheader">
-        <img id="himmel" src="https://www.makelovelocks.com/wp/wp-content/uploads/2014/05/light-blue-sky-clouds-header.jpg" jsaction="VQAsE" class="sFlh5c pT0Scc iPVvYb" style="max-width: 10000px; height: 150px; margin: 8.5px 0px; width: 10000x;" alt="light-blue-sky-clouds-header - MakeLoveLocks.com" jsname="kn3ccd" aria-hidden="false">
-        <div class="header-text">
-            <h1>Välkommen till BurgerHeaven Online</h1>
-        </div>
-    </header>
-
-        <section id="väljaburgare" height: 100px>
-        <h1>Välja burgare!</h1>
-        Här väljer du din burgare.
-        <br>
-
-        <div class="wrapper">
-
-            <div class="box">
-                <h1>Klassikern</h1>
-                <img src="https://assets.icanet.se/e_sharpen:80,q_auto,dpr_1.25,w_718,h_718,c_lfill/imagevaultfiles/id_101408/cf_259/hamburgare.jpg" jsaction="VQAsE" class="sFlh5c pT0Scc iPVvYb" style="max-width: 250px; height: 250px; margin: 0px; width: 250px;" alt="" jsname="kn3ccd" aria-hidden="false">
-                <ul>
-                    <li>100% nötkött</li>
-                    <li>Sallad, tomat, lök & dressing</li>
-                    <li>Innehåller <span class="tjock">gluten</span></li>
-                </ul>
-            </div>
-
-            <div class="box">
-                <h1>Veggie</h1>
-                <img src="https://media-cdn.tripadvisor.com/media/photo-s/1c/4c/91/bd/bacon-cheeseburger.jpg" jsaction="VQAsE" class="sFlh5c pT0Scc iPVvYb" style="max-width: 250px; height: 250px; margin: 0px; width: 250px;" alt="NASTY BURGER CLUB, Bologna - Santo Stefano - Bilder och restaurangomdömen –  beställ matleverans online" jsname="kn3ccd" aria-hidden="false">
-                <ul>
-                    <li>Fri från <span class="tjock">gluten & laktos</span></li>
-                    <li>100% <span class="tjock">vegansk</span></li>
-                </ul>
-            </div>
-
-            <div class="box">
-                <h1>Äcklig</h1>
-                <img src="https://media.istockphoto.com/id/177503553/sv/foto/musty-hamburger-isolated-on-white-background.jpg?s=612x612&amp;w=0&amp;k=20&amp;c=DZdq5zVeK78TYDM0IhLIdFKUdXYklE5-deONSzjfRfE=" jsaction="VQAsE" class="sFlh5c pT0Scc iPVvYb" style="max-width: 250px; height: 250px; margin: 0px; width: 250px;" alt="Musty Hamburger Isolated On White Background-foton och fler bilder på  Burgare - Burgare, Hamburgare, Rutten - iStock" jsname="kn3ccd" aria-hidden="false">
-                <ul>
-                    <li>Äcklig</li>
-                    <li>Ofräsch</li>
-                    <li>Beställ <span class="tjock" id="stort">inte</span></li>
-                </ul>
-            </div>
-
-        </div>
-
-        </section>
-
-        <section id="contact">
-            <h1>Dina uppgifter:</h1>
-            <form>
-                <p>
-                    <label for="name">Namn</label><br>
-                    <input type="text" id="name" name="fn" required="required" placeholder="För- och efternamn">
-                </p>
-                <p>
-                    <label  for="email">Email adress</label><br>
-                    <input type="email" id="email" name="em" required="required" placeholder="E-mail adress">
-                </p>
-                <p>
-                    <label for="street">Gata</label><br>
-                    <input type="text" id="street" name="ln" placeholder="Gatunamn">
-                </p>
-                <p>
-                    <label for="hus">Hus</label><br>
-                    <input type="number" id="hus" name="ln" placeholder="Husnummer">
-                </p>
-                <p>
-                    <label class="tjock" for="payment">Betalsätt</label><br>
-                    <select id="payment" name="payment">
-                        <option>Faktura</option>
-                        <option>Swish</option>
-                        <option selected="selected">Kort</option>
-                        <option>Klarna</option>
-                    </select>
-                </p>
-                <p>
-                <label class="tjock" for="gender">Kön</label><br>
-
-                    <input type="radio" id="kvinna" name="gender" value="kvinna">
-                    <label for="kvinna">Kvinna</label><br>
-                    <input type="radio" id="man" name="gender" value="man">
-                    <label for="man">Man</label><br>
-                    <input type="radio" id="ickebinar" name="gender" value="icke-binär">
-                    <label for="ickebinar">Icke-binär</label><br>
-                    <input checked="checked" type="radio" id="annat" name="gender" value="annat">
-                    <label for="annat">Annat</label><br> 
-
-                </p>
-                </form>
-            </section>
-
-            <section>
-                <button type="submit" class="custom-button">
-                    <img src="https://static.vecteezy.com/ti/gratis-vektor/p3/3667144-isolerad-valsmakande-stor-hamburgare-pa-vit-bakgrund-platt-design-tecknad-burger-med-ost-och-sesamfron-isolerade-pa-vit-bakgrund-vektor-illustration-vector.jpg" jsaction="VQAsE" class="sFlh5c pT0Scc iPVvYb" style="max-width: 20px; width: 20px; height: 20px; margin: 0px;" alt="isolerade välsmakande stor hamburgare på vit bakgrund. platt ..." jsname="kn3ccd">
-                    Send Info
-                  </button>
-            </section>
-
-            <section>
-                <h1>Kontakta oss!</h1>
-                Ring 123 456 789
-                <br>
-                <br>
-            </section>
-
-        </section>
-    </main>
-
-    <hr>
-    <footer>
-        &copy; 2023 BestBurgersEver | All rights reserved
-    </footer>
-
-</body>
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
 </html>
-

@@ -142,7 +142,7 @@ export default {
       payment: 'Kort', 
       kön: '',
 
-      orderedBurgers: {}, /* tom variabel att lägga de beställda burgarna */
+      orderedBurgers: {}, 
 
       location: {x:0, y:0}
     }

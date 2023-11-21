@@ -203,7 +203,7 @@ setLocation(event) {
 <style>
 
  body {
-   font-family: 'Georgia', 'Times New Roman', serif;
+   font-family: 'Georgia', serif;
 }
 
 .tjock {
@@ -264,9 +264,9 @@ button:hover {
 
 #map-container {
   width: 800px; 
-  height: 400px; /* Adjust the height as needed */
+  height: 400px; 
   overflow: scroll;
-  border: 2px solid black; /* Optional border for visual clarity */
+  border: 2px solid black; 
 }
 
 #map {
@@ -274,7 +274,5 @@ button:hover {
   height: 1078px;
   background: url("https://raw.githubusercontent.com/julplo/1md031-lab-2023/main/public/img/polacks.jpg");
 }
-
-
 
 </style>

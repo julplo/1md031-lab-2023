@@ -7,65 +7,86 @@
        </div>
    </header>
 
-   <section id="väljaburgare">
-     <h1>Välja burgare!</h1>
-     Här väljer du din burgare.
-     <br>
+  <section id="väljaburgare">
+      <br>
+    <label class="tjock" for="väljaburgare">Välja burgare!</label><br>
+      <br>
+      Här väljer du din burgare.
+      <br>
+    <div> 
+      <Burger v-for="burger in burgers"
+          v-bind:burger="burger" 
+          v-bind:key="burger.name"
+            v-on:orderedBurgers="addToOrder($event)"/>
+    </div>
+</section>
 
-     <div class="wrapper">
-       <burger v-for="(burger, index) in burgers" :key="index" :burger="burger" />
-     </div>
-   </section>
+  <section id="contact">
+<br>
+ <label class="tjock" for="contact">Dina uppgifter</label><br>
+  
+<form>
+  <div>
+      <p>
+    <label  for="Namn">Namn</label><br>
+    <input v-model="namn" placeholder="För- och efternamn" />
+     </p>
+      <p>
+    <label for="Email">Email adress</label><br>
+    <input v-model="email" placeholder="Namn@exempel.com" />
+      </p>
+      <p>
+      <label for="payment">Betalsätt</label><br>
+    <select v-model="payment">
+        <option>Faktura</option>
+        <option>Swish</option>
+        <option>Kort</option>
+        <option>Klarna</option>
+    </select>
+    </p>
+  </div>
 
-       <section id="contact">
-           <h1>Dina uppgifter:</h1>
-           <form>
-               <p>
-                   <label for="name">Namn</label><br>
-                   <input type="text" id="name" name="fn" required="required" placeholder="För- och efternamn">
-               </p>
-               <p>
-                   <label  for="email">Email adress</label><br>
-                   <input type="email" id="email" name="em" required="required" placeholder="E-mail adress">
-               </p>
-               <p>
-                   <label for="street">Gata</label><br>
-                   <input type="text" id="street" name="ln" placeholder="Gatunamn">
-               </p>
-               <p>
-                   <label for="hus">Hus</label><br>
-                   <input type="number" id="hus" name="ln" placeholder="Husnummer">
-               </p>
-               <p>
-                   <label class="tjock" for="payment">Betalsätt</label><br>
-                   <select id="payment" name="payment">
-                       <option>Faktura</option>
-                       <option>Swish</option>
-                       <option selected="selected">Kort</option>
-                       <option>Klarna</option>
-                   </select>
-               </p>
-               <p>
-               <label class="tjock" for="gender">Kön</label><br>
+    <label class="tjock" for="map-container">Leverans</label><br> 
+    <br>
+    <label for="map">Välj vart vi ska skicka din beställnig</label><br> 
+      <div id="map-container">   
+        <div id="map" v-on:click="setLocation" v-bind:style="{ position: 'relative' }">
+          <div v-bind:style="{ position: 'absolute', left: location.x + 'px', top: location.y + 'px' }"
+                style="color: red; font-weight: bold;">
+          <div class="dot"></div>
+            HÄR!
+      </div>
+    </div> 
+    </div>
 
-                   <input type="radio" id="kvinna" name="gender" value="kvinna">
-                   <label for="kvinna">Kvinna</label><br>
-                   <input type="radio" id="man" name="gender" value="man">
-                   <label for="man">Man</label><br>
-                   <input type="radio" id="ickebinar" name="gender" value="icke-binär">
-                   <label for="ickebinar">Icke-binär</label><br>
-                   <input checked="checked" type="radio" id="annat" name="gender" value="annat">
-                   <label for="annat">Annat</label><br> 
+    <div>
+      <p> 
+      <label class="tjock" for="kön">Kön</label><br>
+        
+      <input type="radio" id="kvinna" v-model="kön" value="kvinna">
+        <label for="kvinna">Kvinna</label>
+        <br>
+      <input type="radio" id="Man" v-model="kön" value="man">
+        <label for="Man">Man</label>
+        <br>
+      <input type="radio" id="Annat" v-model="kön" value="Annat">
+        <label for="Annat">Annat</label>
+        <br>
+      <input type="radio" id="VillInteSäga" v-model="kön" value="Vill inte säga">
+        <label for="VillInteSäga">Vill inte säga</label>
+        <br>
+      </p>
+    </div>
 
-               </p>
-               </form>
+</form>
            </section>
 
            <section>
-               <button type="submit" class="custom-button">
+               <button type="submit" class="custom-button" v-on:click="sendInfo">
                    <img src="https://static.vecteezy.com/ti/gratis-vektor/p3/3667144-isolerad-valsmakande-stor-hamburgare-pa-vit-bakgrund-platt-design-tecknad-burger-med-ost-och-sesamfron-isolerade-pa-vit-bakgrund-vektor-illustration-vector.jpg" jsaction="VQAsE" class="sFlh5c pT0Scc iPVvYb" style="max-width: 20px; width: 20px; height: 20px; margin: 0px;" alt="isolerade välsmakande stor hamburgare på vit bakgrund. platt ..." jsname="kn3ccd">
-                   Send Info
-                 </button>
+                   Beställ!
+                 </button> 
+
            </section>
 
            <section>
@@ -83,12 +104,13 @@
 </template>
 
 <script>
+import menu from '../assets/menu.json'
 import Burger from '../components/OneBurger.vue'
 import io from 'socket.io-client'
 
 const socket = io();
 
-function MenuItem(name, imageUrl, kCal, containsGluten, containsLactose) {
+/*function MenuItem(name, imageUrl, kCal, containsGluten, containsLactose) {
  this.name = name;
  this.imageUrl = imageUrl;
  this.kCal = kCal;
@@ -97,40 +119,85 @@ function MenuItem(name, imageUrl, kCal, containsGluten, containsLactose) {
 }
 
 const theburgers = [
- new MenuItem("Klassikern", "https://www.sweetbabyrays.se/lidd/content/images/Grillad-hamburgare-med-BBQ-sas.jpg", 700, true, true),
- new MenuItem("Veggie","https://res.cloudinary.com/coopsverige/image/upload/f_auto,fl_progressive,q_90,g_center,h_800,w_800/v1545220329/358025.jpg", 700, false, false ),
+ new MenuItem("Klassikern", "https://www.sweetbabyrays.se/lidd/content/images/Grillad-hamburgare-med-BBQ-sas.jpg", 750, true, true),
+ new MenuItem("Veggie","https://res.cloudinary.com/coopsverige/image/upload/f_auto,fl_progressive,q_90,g_center,h_800,w_800/v1545220329/358025.jpg", 600, false, false ),
  new MenuItem("BBQ burgare", "https://res.cloudinary.com/coopsverige/image/upload/f_auto,fl_progressive,q_90,g_center,h_800,w_800/v1521205971/281117.jpg", 700, true, false)
 
-];
-
+]
 console.log(theburgers); /* printa till consolen */
 
 export default {
- name: 'HomeView',
- components: {
-   Burger
- },
- data: function () {
-   return {
-     burgers: theburgers
-   }
- },
+  name: 'HomeView',
+  components: {
+    Burger
+  },
+  data() {
+    return {
+      burgers: menu,
+    
+      namn: '', 
+      email:'',
+      gata: '',
+      hus: '', 
+      payment: 'Kort', 
+      kön: '',
+
+      orderedBurgers: {}, /* tom variabel att lägga de beställda burgarna */
+
+      location: {x:0, y:0}
+    }
+  },
  methods: {
+  sendInfo() {
+      console.log('Namn:', this.namn);
+      console.log('Email:', this.email);
+      console.log('Payment:', this.payment);
+      console.log('Kön:', this.kön);
+
+      console.log('Ordered Burgers', this.orderedBurgers)
+
+      console.log('Location', this.location)
+
+      socket.emit("addOrder", {
+        orderId: this.getOrderNumber(),
+        details: this.location,
+        orderItems: this.orderedBurgers,
+        orderNamn: this.namn,
+        orderEmail: this.email,
+        orderKön: this.kön,
+        orderPayment: this.payment
+      });
+  },
+   
+  
    getOrderNumber: function () {
-     return Math.floor(Math.random()*100000);
+     return Math.floor(Math.random()*1000);
    },
-   addOrder: function (event) {
-     var offset = {x: event.currentTarget.getBoundingClientRect().left,
-                   y: event.currentTarget.getBoundingClientRect().top};
-     socket.emit("addOrder", { orderId: this.getOrderNumber(),
-                               details: { x: event.clientX - 10 - offset.x,
-                                          y: event.clientY - 10 - offset.y },
-                               orderItems: ["Beans", "Curry"]
-                             }
-                );
-   }
- }
+
+   addToOrder: function (event) {
+  this.orderedBurgers[event.name] = event.amount;
+  console.log(`Ordered ${event.amount} of ${event.name}`);
+  
+},
+
+setLocation(event) {
+      const offset = {
+        x: event.currentTarget.getBoundingClientRect().left,
+        y: event.currentTarget.getBoundingClientRect().top
+      };
+
+      this.location = {
+        x: event.clientX - 10 - offset.x,
+        y: event.clientY - 10 - offset.y
+      };
+    },
+
+    addOrder(event) {
+      this.setLocation(event);
+    }
+  }
 }
+
 </script>
 
 <style>
@@ -161,12 +228,6 @@ export default {
    margin-top: -1;
    font-size: 1.3em;
    white-space: nowrap;
-}
-
-@media screen and (max-width: 800px) {
-   h1 {
-       font-size: 6vw;
-   }
 }
 
 #himmel {
@@ -201,17 +262,19 @@ button:hover {
    background-color: lightblue;
 }
 
-.wrapper {
-   display: grid;
-   grid-gap: 10px;
-   grid-template-columns: 300px 300px 300px;
-   text-align: center;
+#map-container {
+  width: 800px; 
+  height: 400px; /* Adjust the height as needed */
+  overflow: scroll;
+  border: 2px solid black; /* Optional border for visual clarity */
 }
 
-.box {
-   padding: 15px;
-   margin: 10px;
+#map {
+  width: 1920px;
+  height: 1078px;
+  background: url("https://raw.githubusercontent.com/julplo/1md031-lab-2023/main/public/img/polacks.jpg");
 }
+
 
 
 </style>

@@ -53,7 +53,6 @@
         <div id="map" v-on:click="setLocation" v-bind:style="{ position: 'relative' }">
           <div v-bind:style="{ position: 'absolute', left: location.x + 'px', top: location.y + 'px' }"
                 style="color: red; font-weight: bold;">
-          <div class="dot"></div>
             HÄR!
       </div>
     </div> 

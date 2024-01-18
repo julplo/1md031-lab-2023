@@ -4,7 +4,7 @@
       "kCal": 750,
       "containsLactose": true,
       "containsGluten": true,
-      "imageUrl": "https://www.sweetbabyrays.se/lidd/content/images/Grillad-hamburgare-med-BBQ-sas.jpg"
+      "imageUrl": "/img/Hamburgare1.jpeg"
     }
 ,
     {
@@ -12,7 +12,7 @@
       "kCal": 600,
       "containsLactose": false,
       "containsGluten": false,
-      "imageUrl": "https://res.cloudinary.com/coopsverige/image/upload/f_auto,fl_progressive,q_90,g_center,h_800,w_800/v1545220329/358025.jpg"
+      "imageUrl": "/img/Hamburgare2.webp"
     }
 ,
  {
@@ -20,7 +20,7 @@
       "kCal": 700,
       "containsLactose": false,
       "containsGluten": false,
-      "imageUrl": "https://res.cloudinary.com/coopsverige/image/upload/f_auto,fl_progressive,q_90,g_center,h_800,w_800/v1521205971/281117.jpg"
+      "imageUrl": "/img/Hamburgare3.webp"
     }
     
   ]
